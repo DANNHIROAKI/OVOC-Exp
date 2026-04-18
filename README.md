@@ -1,4 +1,4 @@
-# OpenViking × OpenClaw 三组正式 benchmark 仓库
+# OpenViking × OpenClaw LoCoMo benchmark 
 
 这个仓库按锁定版实验计划实现了完整的三组 benchmark harness：
 
