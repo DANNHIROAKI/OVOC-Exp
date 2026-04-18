@@ -1,0 +1,32 @@
+{
+  "server": {
+    "port": __OPENVIKING_PORT__,
+    "root_api_key": "__OPENVIKING_ROOT_API_KEY__"
+  },
+  "storage": {
+    "workspace": "__OPENVIKING_HOME__"
+  },
+  "log": {
+    "level": "INFO",
+    "output": "file"
+  },
+  "embedding": {
+    "max_concurrent": 10,
+    "max_retries": 3,
+    "dense": {
+      "provider": "volcengine",
+      "api_base": "__OV_EMBED_API_BASE__",
+      "api_key": "__OV_PROVIDER_API_KEY__",
+      "dimension": 1024,
+      "input": "multimodal",
+      "model": "__OV_EMBED_MODEL__"
+    }
+  },
+  "vlm": {
+    "provider": "volcengine",
+    "api_base": "__OV_VLM_API_BASE__",
+    "api_key": "__OV_PROVIDER_API_KEY__",
+    "model": "__OV_VLM_MODEL__",
+    "max_retries": 3
+  }
+}

@@ -1,0 +1,91 @@
+name: openviking-openclaw-benchmark
+
+repos:
+  dataset_repo_url: https://github.com/DANNHIROAKI/OpenViking-LoCoMo10.git
+  setup_repo_url: https://github.com/DANNHIROAKI/openclaw-openviking-doubao.git
+  openviking_repo_url: https://github.com/volcengine/OpenViking.git
+  openclaw_repo_url: https://github.com/openclaw/openclaw.git
+  openclaw_eval_repo_url: https://github.com/ZaynJarvis/openclaw-eval.git
+
+versions:
+  openclaw: "2026.4.14"
+  openviking: "0.3.8"
+
+runtime:
+  runtime_root: ../runtime
+  artifacts_dir: ../artifacts
+  toolchain_dir: ../runtime/toolchains
+  repos_dir: ../runtime/repos
+  snapshots_dir: ../runtime/snapshots
+  work_dir: ../runtime/work
+  keep_workdirs: false
+  resume: true
+  reruns: 1
+  request_timeout_seconds: 300
+  ov_barrier_timeout_seconds: 300
+  noov_quiet_wait_seconds: 3
+  gateway_start_timeout_seconds: 300
+  gateway_health_poll_seconds: 2.0
+  qa_retry_count: 2
+  qa_retry_backoff_seconds: 2.0
+  judge_parallel: 10
+  strict_ov_usage: true
+  fallback_explicit_commit_for_telemetry: false
+  barrier_require_extracted_memories: false
+  run_ov_smoke_test: true
+  max_block_retries: 2
+  openclaw_agent_id: main
+  openviking_agent_id: default
+  openviking_port: 1933
+  gateway_base_url_fallback: http://127.0.0.1:18789
+  telemetry_slop_seconds: 1.0
+  ingest_tail: "[remember what's said, keep existing memory]"
+
+models:
+  generator_alias: seed-2.0-code
+  generator_api_base_env: OV_OC_OPENCLAW_BASE_URL
+  generator_model_id_env: OV_OC_OPENCLAW_MODEL_ID
+  ov_vlm_api_base_env: OV_OC_OV_VLM_API_BASE
+  ov_vlm_model_env: OV_OC_OV_VLM_MODEL
+  ov_embed_api_base_env: OV_OC_OV_EMBED_API_BASE
+  ov_embed_model_env: OV_OC_OV_EMBED_MODEL
+  judge_api_base_env: OV_OC_JUDGE_BASE_URL
+  judge_model_env: OV_OC_JUDGE_MODEL
+
+env:
+  shared_api_key_env: OV_OC_ARK_API_KEY
+  volcengine_api_key_env: VOLCANO_ENGINE_API_KEY
+  custom_api_key_env: CUSTOM_API_KEY
+  gateway_token_env: OPENCLAW_GATEWAY_TOKEN
+  ov_root_api_key_env: OPENVIKING_API_KEY
+  custom_api_compatibility: openai
+
+dataset:
+  vendor_json: ../vendor/data/openviking-locomo10-1540/locomo10_openviking_1540.json
+  vendor_jsonl: ../vendor/data/openviking-locomo10-1540/locomo10_openviking_1540.jsonl
+  vendor_manifest: ../vendor/data/openviking-locomo10-1540/manifest.json
+  expected_total_cases: 1540
+  expected_sample_count: 10
+  expected_removed_category: 5
+
+groups:
+  - id: G1
+    label: OV / no-memory
+    memory_slot: none
+    context_engine: openviking
+    openviking_enabled: true
+    deny: []
+
+  - id: G2
+    label: No-OV / stock
+    memory_slot: memory-core
+    context_engine: legacy
+    openviking_enabled: false
+    deny: ["openviking"]
+
+  - id: G3
+    label: OV / stock
+    memory_slot: memory-core
+    context_engine: openviking
+    openviking_enabled: true
+    deny: []

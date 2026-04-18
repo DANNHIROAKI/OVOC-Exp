@@ -1,0 +1,138 @@
+{
+  "name": "openviking-locomo10-1540",
+  "description": "LoCoMo10 subset used to reproduce the OpenViking/OpenClaw experiment: category 5 removed, 1540 QA cases retained.",
+  "source": {
+    "repo": "ZaynJarvis/openclaw-eval",
+    "commit": "75e07d696e0db5923ac767109f920df2fc807888",
+    "url": "https://raw.githubusercontent.com/ZaynJarvis/openclaw-eval/75e07d696e0db5923ac767109f920df2fc807888/locomo10.json"
+  },
+  "stats": {
+    "sample_count": 10,
+    "total_cases_before_filter": 1986,
+    "total_cases_after_filter": 1540,
+    "category_counts_before_filter": {
+      "1": 282,
+      "2": 321,
+      "3": 96,
+      "4": 841,
+      "5": 446
+    },
+    "category_counts_after_filter": {
+      "1": 282,
+      "2": 321,
+      "3": 96,
+      "4": 841
+    },
+    "per_sample": [
+      {
+        "sample_id": "conv-26",
+        "kept_cases": 152,
+        "category_breakdown": {
+          "1": 32,
+          "2": 37,
+          "3": 13,
+          "4": 70
+        }
+      },
+      {
+        "sample_id": "conv-30",
+        "kept_cases": 81,
+        "category_breakdown": {
+          "1": 11,
+          "2": 26,
+          "4": 44
+        }
+      },
+      {
+        "sample_id": "conv-41",
+        "kept_cases": 152,
+        "category_breakdown": {
+          "1": 31,
+          "2": 27,
+          "3": 8,
+          "4": 86
+        }
+      },
+      {
+        "sample_id": "conv-42",
+        "kept_cases": 199,
+        "category_breakdown": {
+          "1": 37,
+          "2": 40,
+          "3": 11,
+          "4": 111
+        }
+      },
+      {
+        "sample_id": "conv-43",
+        "kept_cases": 178,
+        "category_breakdown": {
+          "1": 31,
+          "2": 26,
+          "3": 14,
+          "4": 107
+        }
+      },
+      {
+        "sample_id": "conv-44",
+        "kept_cases": 123,
+        "category_breakdown": {
+          "1": 30,
+          "2": 24,
+          "3": 7,
+          "4": 62
+        }
+      },
+      {
+        "sample_id": "conv-47",
+        "kept_cases": 150,
+        "category_breakdown": {
+          "1": 20,
+          "2": 34,
+          "3": 13,
+          "4": 83
+        }
+      },
+      {
+        "sample_id": "conv-48",
+        "kept_cases": 191,
+        "category_breakdown": {
+          "1": 21,
+          "2": 42,
+          "3": 10,
+          "4": 118
+        }
+      },
+      {
+        "sample_id": "conv-49",
+        "kept_cases": 156,
+        "category_breakdown": {
+          "1": 37,
+          "2": 33,
+          "3": 13,
+          "4": 73
+        }
+      },
+      {
+        "sample_id": "conv-50",
+        "kept_cases": 158,
+        "category_breakdown": {
+          "1": 32,
+          "2": 32,
+          "3": 7,
+          "4": 87
+        }
+      }
+    ]
+  },
+  "files": {
+    "filtered_json": {
+      "path": "data/openviking-locomo10-1540/locomo10_openviking_1540.json",
+      "sha256": "64e32f5c4bd9247740cd700cecf1c9f1260947689e8186af94bdff37cf91616e"
+    },
+    "flat_jsonl": {
+      "path": "data/openviking-locomo10-1540/locomo10_openviking_1540.jsonl",
+      "sha256": "7544898388c4bbae85b012ad8350596c441e2d7d1e2272e247b48888bde8a5ee"
+    }
+  }
+}

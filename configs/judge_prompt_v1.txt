@@ -1,0 +1,22 @@
+Evaluate whether the predicted answer is semantically correct for the question.
+
+Rules:
+1. Accept paraphrases and equivalent date or entity expressions.
+2. Reject answers that omit a required key fact, add a contradictory fact, or answer a different question.
+3. If the prediction is an explicit error message, mark it incorrect.
+4. Use the gold answer as the ground truth and be conservative.
+
+Question:
+{question}
+
+Gold answer:
+{gold_answer}
+
+Predicted answer:
+{prediction}
+
+Return JSON only:
+{
+  "is_correct": true or false,
+  "reasoning": "brief explanation"
+}
