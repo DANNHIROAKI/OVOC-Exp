@@ -61,10 +61,13 @@ def _parse_json_object(text: str) -> dict[str, Any] | None:
 
 
 def build_user_prompt(prompt_template: str, *, question: str, gold_answer: str, prediction: str) -> str:
-    return prompt_template.format(
-        question=question,
-        gold_answer=gold_answer,
-        prediction=prediction,
+    # Use explicit placeholder replacement so literal braces in prompt templates
+    # (e.g. JSON examples) are preserved instead of being interpreted by str.format.
+    return (
+        prompt_template
+        .replace("{question}", question)
+        .replace("{gold_answer}", gold_answer)
+        .replace("{prediction}", prediction)
     )
 
 
